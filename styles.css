@@ -1,9 +1,9 @@
 /* Подключение шрифтов */
 @font-face {
     font-family: 'PPPangramSansRounded';
-    src: url('/fonts/PPPangramSansRounded-Light.woff2') format('woff2'),
-         url('/fonts/PPPangramSansRounded-Light.woff') format('woff'),
-         url('/fonts/PPPangramSansRounded-Light.ttf') format('truetype');
+    src: url('./fonts/PPPangramSansRounded-Light.woff2') format('woff2'),
+         url('./fonts/PPPangramSansRounded-Light.woff') format('woff'),
+         url('./fonts/PPPangramSansRounded-Light.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -11,9 +11,9 @@
 
 @font-face {
     font-family: 'PPPangramSansRounded';
-    src: url('/fonts/PPPangramSansRounded-Medium.woff2') format('woff2'),
-         url('/fonts/PPPangramSansRounded-Medium.woff') format('woff'),
-         url('/fonts/PPPangramSansRounded-Medium.ttf') format('truetype');
+    src: url('./fonts/PPPangramSansRounded-Medium.woff2') format('woff2'),
+         url('./fonts/PPPangramSansRounded-Medium.woff') format('woff'),
+         url('./fonts/PPPangramSansRounded-Medium.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -21,9 +21,9 @@
 
 @font-face {
     font-family: 'PPPangramSansRounded';
-    src: url('/fonts/PPPangramSansRounded-Semibold.woff2') format('woff2'),
-         url('/fonts/PPPangramSansRounded-Semibold.woff') format('woff'),
-         url('/fonts/PPPangramSansRounded-Semibold.ttf') format('truetype');
+    src: url('./fonts/PPPangramSansRounded-Semibold.woff2') format('woff2'),
+         url('./fonts/PPPangramSansRounded-Semibold.woff') format('woff'),
+         url('./fonts/PPPangramSansRounded-Semibold.ttf') format('truetype');
     font-weight: 600;
     font-style: normal;
     font-display: swap;
@@ -31,9 +31,9 @@
 
 @font-face {
     font-family: 'PPPangramSansRounded';
-    src: url('/fonts/PPPangramSansRounded-Bold.woff2') format('woff2'),
-         url('/fonts/PPPangramSansRounded-Bold.woff') format('woff'),
-         url('/fonts/PPPangramSansRounded-Bold.ttf') format('truetype');
+    src: url('./fonts/PPPangramSansRounded-Bold.woff2') format('woff2'),
+         url('./fonts/PPPangramSansRounded-Bold.woff') format('woff'),
+         url('./fonts/PPPangramSansRounded-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
