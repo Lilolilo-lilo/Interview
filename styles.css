@@ -1,5 +1,27 @@
 /* Подключение шрифтов */
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+@font-face {
+    font-family: 'PPPangramSansRounded';
+    src: url('./fonts/PPPangramSansRounded-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PPPangramSansRounded';
+    src: url('./fonts/PPPangramSansRounded-Semibold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PPPangramSansRounded';
+    src: url('./fonts/PPPangramSansRounded-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
 
 /* Общие стили */
 :root {
@@ -23,7 +45,7 @@
     --Colors-Specific: #DCFD00;
     --Colors-Text: #141414;
     --Colors-Background-4: #F6F4E9;
-    --Fonts-Font: 'Nunito Sans', sans-serif;
+    --Fonts-Font: 'PPPangramSansRounded', sans-serif;
 }
 
 * {
@@ -33,7 +55,7 @@
 }
 
 body {
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'PPPangramSansRounded', sans-serif;
     background-color: var(--primary-bg);
     color: var(--text-color);
     transition: all 0.3s ease;
@@ -75,7 +97,7 @@ body {
     font-weight: 700;
     font-size: 16px;
     color: var(--text-color, #141414);
-    font-family: var(--Fonts-Font, "Nunito Sans");
+    font-family: var(--Fonts-Font, "PPPangramSansRounded");
     font-style: normal;
     line-height: normal;
     margin-left: 8px;
@@ -95,7 +117,7 @@ body {
     font-size: 24px;
     margin-bottom: 8px;
     color: var(--text-color, #141414);
-    font-family: var(--Fonts-Font, "Nunito Sans");
+    font-family: var(--Fonts-Font, "PPPangramSansRounded");
     line-height: 24px; /* 109.091% */
     text-align: left;
     width: 296px;
@@ -106,7 +128,7 @@ body {
     font-size: 14px;
     margin-bottom: 16px;
     color: var(--text-color, #141414);
-    font-family: var(--Fonts-Font, "Nunito Sans");
+    font-family: var(--Fonts-Font, "PPPangramSansRounded");
     line-height: 20px; /* 142.857% */
     text-align: left;
     width: 259px;
@@ -128,7 +150,7 @@ body {
     font-size: 14px;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-family: var(--Fonts-Font, "Nunito Sans");
+    font-family: var(--Fonts-Font, "PPPangramSansRounded");
     line-height: normal;
     box-shadow: 4px 4px 0px 0px var(--border-color, #141414);
     display: flex;
@@ -175,7 +197,7 @@ body {
     background: var(--Colors-Specific, #DCFD00);
     box-shadow: -4px 4px 0px 0px var(--Colors-Border, #141414);
     color: var(--Colors-Text, #141414);
-    font-family: var(--Fonts-Font, "Nunito Sans");
+    font-family: var(--Fonts-Font, "PPPangramSansRounded");
     font-size: 14px;
     font-weight: 700;
     line-height: normal;
@@ -205,7 +227,7 @@ body {
 
 .benefit-item span {
     color: var(--Colors-Text, #141414);
-    font-family: var(--Fonts-Font, "Nunito Sans");
+    font-family: var(--Fonts-Font, "PPPangramSansRounded");
     font-size: 16px;
     font-weight: 400;
     line-height: normal;
@@ -266,7 +288,7 @@ body {
 
 .faq-question span {
     color: var(--Colors-Text, #141414);
-    font-family: var(--Fonts-Font, "Nunito Sans");
+    font-family: var(--Fonts-Font, "PPPangramSansRounded");
     font-size: 16px;
     font-weight: 400;
     line-height: normal;
@@ -278,7 +300,7 @@ body {
 
 .faq-answer p {
     color: var(--Colors-Text-2, #454545);
-    font-family: var(--Fonts-Font, "Nunito Sans");
+    font-family: var(--Fonts-Font, "PPPangramSansRounded");
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
@@ -312,7 +334,7 @@ body {
 
 .telegram-link a {
     color: var(--Colors-Text, #141414);
-    font-family: var(--Fonts-Font, "Nunito Sans");
+    font-family: var(--Fonts-Font, "PPPangramSansRounded");
     font-size: 16px;
     font-weight: 700;
     line-height: normal;
@@ -321,7 +343,7 @@ body {
 
 .telegram-link p {
     color: var(--Colors-Text, #141414);
-    font-family: var(--Fonts-Font, "Nunito Sans");
+    font-family: var(--Fonts-Font, "PPPangramSansRounded");
     font-size: 14px;
     font-weight: 400;
     line-height: normal;
