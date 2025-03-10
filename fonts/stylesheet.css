@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'PP Pangram Sans Rounded';
+    src: url('PPPangramSansRounded-Light.woff2') format('woff2'),
+        url('PPPangramSansRounded-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP Pangram Sans Rounded Narrow';
+    src: url('PPPangramSansRounded-Bold.woff2') format('woff2'),
+        url('PPPangramSansRounded-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP Pangram Sans Rounded Smbold';
+    src: url('PPPangramSansRounded-Semibold.woff2') format('woff2'),
+        url('PPPangramSansRounded-Semibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP Pangram Sans Rounded';
+    src: url('PPPangramSansRounded-Medium.woff2') format('woff2'),
+        url('PPPangramSansRounded-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
