@@ -59,20 +59,6 @@
     --Colors-Background-4: #F6F4E9;
 }
 
-.dark-theme {
-    --primary-bg: #121212;
-    --header-bg: #2FDF84;
-    --beta-bg: #2C2C2C;
-    --button-bg: #FF4B4B;
-    --illustration-bg: #2C2C2C;
-    --logo-bg: #2C2C2C;
-    --faq-bg: #2C2C2C;
-    --telegram-bg: #1A472A;
-    --text-color: #141414;
-    --button-text: #ffffff;
-    --border-color: #141414;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -126,67 +112,6 @@ body {
     font-style: normal;
     line-height: normal;
     margin-left: 8px;
-}
-
-.theme-toggle {
-    display: flex;
-    align-items: center;
-}
-
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 52px;
-    height: 32px;
-}
-
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #FFF;
-    -webkit-transition: .4s;
-    transition: .4s;
-    border-radius: 100px;
-    border: 1px solid var(--border-color, #141414);
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 24px;
-    width: 24px;
-    left: 4px;
-    bottom: 3px;
-    background-color: transparent;
-    -webkit-transition: .4s;
-    transition: .4s;
-    border-radius: 50%;
-    background-image: url('/public/icons/sun.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 24px;
-}
-
-input:checked + .slider {
-    background-color: #121212;
-}
-
-input:checked + .slider:before {
-    -webkit-transform: translateX(20px);
-    -ms-transform: translateX(20px);
-    transform: translateX(20px);
-    background-image: url('/public/icons/moon.svg');
-    background-color: transparent;
 }
 
 /* Стили для блока с приглашением */

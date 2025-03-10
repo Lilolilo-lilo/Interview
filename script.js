@@ -1,18 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Переключение темы
-    const themeSwitch = document.getElementById('theme-switch');
-    let isDarkTheme = false;
-
-    themeSwitch.addEventListener('change', function() {
-        isDarkTheme = this.checked;
-        
-        if (isDarkTheme) {
-            document.body.classList.add('dark-theme');
-        } else {
-            document.body.classList.remove('dark-theme');
-        }
-    });
-
     // Обработка FAQ - раскрытие/скрытие ответов
     const faqItems = document.querySelectorAll('.faq-item');
     
