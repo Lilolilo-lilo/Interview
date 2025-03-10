@@ -1,38 +1,38 @@
 /* Подключение шрифтов */
 @font-face {
     font-family: 'PPPangramSansRounded';
-    src: url('./fonts/PPPangramSansRounded-Light.woff2') format('woff2'),
-         url('./fonts/PPPangramSansRounded-Light.woff') format('woff');
+    src: url('https://lilolilo-lilo.github.io/Interview/fonts/PPPangramSansRounded-Light.woff2') format('woff2'),
+         url('https://lilolilo-lilo.github.io/Interview/fonts/PPPangramSansRounded-Light.woff') format('woff');
     font-weight: 300;
     font-style: normal;
-    font-display: swap;
+    font-display: fallback;
 }
 
 @font-face {
     font-family: 'PPPangramSansRounded';
-    src: url('./fonts/PPPangramSansRounded-Medium.woff2') format('woff2'),
-         url('./fonts/PPPangramSansRounded-Medium.woff') format('woff');
+    src: url('https://lilolilo-lilo.github.io/Interview/fonts/PPPangramSansRounded-Medium.woff2') format('woff2'),
+         url('https://lilolilo-lilo.github.io/Interview/fonts/PPPangramSansRounded-Medium.woff') format('woff');
     font-weight: 500;
     font-style: normal;
-    font-display: swap;
+    font-display: fallback;
 }
 
 @font-face {
     font-family: 'PPPangramSansRounded';
-    src: url('./fonts/PPPangramSansRounded-Semibold.woff2') format('woff2'),
-         url('./fonts/PPPangramSansRounded-Semibold.woff') format('woff');
+    src: url('https://lilolilo-lilo.github.io/Interview/fonts/PPPangramSansRounded-Semibold.woff2') format('woff2'),
+         url('https://lilolilo-lilo.github.io/Interview/fonts/PPPangramSansRounded-Semibold.woff') format('woff');
     font-weight: 600;
     font-style: normal;
-    font-display: swap;
+    font-display: fallback;
 }
 
 @font-face {
     font-family: 'PPPangramSansRounded';
-    src: url('./fonts/PPPangramSansRounded-Bold.woff2') format('woff2'),
-         url('./fonts/PPPangramSansRounded-Bold.woff') format('woff');
+    src: url('https://lilolilo-lilo.github.io/Interview/fonts/PPPangramSansRounded-Bold.woff2') format('woff2'),
+         url('https://lilolilo-lilo.github.io/Interview/fonts/PPPangramSansRounded-Bold.woff') format('woff');
     font-weight: 700;
     font-style: normal;
-    font-display: swap;
+    font-display: fallback;
 }
 
 /* Общие стили */
