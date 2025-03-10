@@ -354,6 +354,9 @@ input:checked + .slider:before {
     gap: 8px;
     cursor: pointer;
     margin-bottom: 8px;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
 }
 
 .toggle-icon {
