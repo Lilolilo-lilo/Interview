@@ -1,0 +1,511 @@
+/* Подключение шрифтов */
+@font-face {
+    font-family: 'PPPangramSansRounded';
+    src: url('fonts/PPPangramSansRounded-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PPPangramSansRounded';
+    src: url('fonts/PPPangramSansRounded-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PPPangramSansRounded';
+    src: url('fonts/PPPangramSansRounded-Semibold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PPPangramSansRounded';
+    src: url('fonts/PPPangramSansRounded-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Общие стили */
+:root {
+    --primary-bg: #ffffff;
+    --header-bg: #2FDF84;
+    --beta-bg: #FFF8DC;
+    --button-bg: #FF4B4B;
+    --illustration-bg: #E6E6FA;
+    --logo-bg: #E6E6FA;
+    --faq-bg: #FFF8DC;
+    --telegram-bg: #1ED760;
+    --text-color: #141414;
+    --button-text: #ffffff;
+    --border-radius: 16px;
+    --border-color: #141414;
+    --Colors-Background-2: #FFF4CA;
+    --Colors-Primary: #F93332;
+    --Colors-Text-3: #FFF;
+    --Colors-Border: #141414;
+    --Colors-Background-3: #CFACE4;
+    --Colors-Specific: #DCFD00;
+    --Colors-Text: #141414;
+    --Colors-Background-4: #F6F4E9;
+}
+
+.dark-theme {
+    --primary-bg: #121212;
+    --header-bg: #2FDF84;
+    --beta-bg: #2C2C2C;
+    --button-bg: #FF4B4B;
+    --illustration-bg: #2C2C2C;
+    --logo-bg: #2C2C2C;
+    --faq-bg: #2C2C2C;
+    --telegram-bg: #1A472A;
+    --text-color: #141414;
+    --button-text: #ffffff;
+    --border-color: #141414;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'PPPangramSansRounded', sans-serif;
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Стили для шапки */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--header-bg);
+    padding: 24px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color, #141414);
+    margin-top: 32px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-image {
+    width: 40px;
+    height: 40px;
+}
+
+.logo span {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--text-color, #141414);
+    font-family: var(--Fonts-Font, "PP Pangram Sans Rounded");
+    font-style: normal;
+    line-height: normal;
+    margin-left: 8px;
+}
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 32px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #FFF;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 100px;
+    border: 1px solid var(--border-color, #141414);
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 24px;
+    width: 24px;
+    left: 4px;
+    bottom: 3px;
+    background-color: transparent;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+    background-image: url('public/icons/sun.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 24px;
+}
+
+input:checked + .slider {
+    background-color: #121212;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    transform: translateX(20px);
+    background-image: url('public/icons/moon.svg');
+    background-color: transparent;
+}
+
+/* Стили для блока с приглашением */
+.beta-invite {
+    background-color: var(--Colors-Background-2, #FFF4CA);
+    padding: 24px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color, #141414);
+    text-align: left;
+}
+
+.beta-invite h2 {
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 8px;
+    color: var(--text-color, #141414);
+    font-family: var(--Fonts-Font, "PP Pangram Sans Rounded");
+    line-height: 24px; /* 109.091% */
+    text-align: left;
+    width: 296px;
+}
+
+.beta-invite p {
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 16px;
+    color: var(--text-color, #141414);
+    font-family: var(--Fonts-Font, "PP Pangram Sans Rounded");
+    line-height: 20px; /* 142.857% */
+    text-align: left;
+    width: 259px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 24px;
+}
+
+.signup-btn {
+    background-color: var(--Colors-Primary, #F93332);
+    color: var(--Colors-Text-3, #FFF);
+    border: none;
+    border-radius: 8px;
+    padding: 16px 48px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--Fonts-Font, "PP Pangram Sans Rounded");
+    line-height: normal;
+    box-shadow: 4px 4px 0px 0px var(--border-color, #141414);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Стили для блока с иллюстрацией */
+.illustration-block {
+    padding: 24px;
+    border-radius: 8px;
+    border: 1px solid var(--Colors-Border, #141414);
+    background: var(--Colors-Background-3, #CFACE4);
+    position: relative;
+}
+
+.illustration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+}
+
+.earth-image {
+    width: 125px;
+    height: 199px;
+    object-fit: contain;
+    margin-right: 20px;
+}
+
+.cookie-image {
+    width: 119px;
+    height: 152px;
+    object-fit: contain;
+    margin-top: 32px;
+}
+
+.counter-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 8px;
+    border-radius: 4px;
+    background: var(--Colors-Specific, #DCFD00);
+    box-shadow: -4px 4px 0px 0px var(--Colors-Border, #141414);
+    color: var(--Colors-Text, #141414);
+    font-family: var(--Fonts-Font, "PP Pangram Sans Rounded");
+    font-size: 14px;
+    font-weight: 700;
+    line-height: normal;
+    display: inline-block;
+}
+
+/* Стили для блока с преимуществами */
+.benefits {
+    padding: 24px;
+    border-radius: 8px;
+    border: 1px solid var(--Colors-Border, #141414);
+    background: var(--Colors-Background-4, #F6F4E9);
+    display: flex;
+    flex-direction: column;
+}
+
+.benefit-item {
+    gap: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.benefit-item img {
+    width: 40px;
+    height: 40px;
+}
+
+.benefit-item span {
+    color: var(--Colors-Text, #141414);
+    font-family: var(--Fonts-Font, "PP Pangram Sans Rounded");
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* Стили для блока с логотипами */
+.logo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.logo-item {
+    padding: 24px;
+    border-radius: 8px;
+    border: 1px solid var(--Colors-Border, #141414);
+    background: var(--Colors-Background-3, #CFACE4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    overflow: hidden;
+}
+
+.logo-item img {
+    width: 146px;
+    height: 144px;
+    object-fit: contain;
+    max-width: 100%;
+}
+
+/* Стили для блока с FAQ */
+.faq {
+    background-color: var(--faq-bg);
+    border-radius: var(--border-radius);
+    padding: 16px;
+}
+
+.faq-item {
+    margin-bottom: 12px;
+}
+
+.faq-question {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    margin-bottom: 8px;
+}
+
+.toggle-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.faq-question span {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.faq-answer {
+    padding-left: 24px;
+    font-size: 14px;
+    color: #666;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Стили для блока с Telegram-ссылкой */
+.telegram-link {
+    background-color: var(--telegram-bg);
+    border-radius: var(--border-radius);
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.telegram-link img {
+    width: 24px;
+    height: 24px;
+}
+
+.telegram-link a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.telegram-link p {
+    color: white;
+    font-size: 12px;
+    margin-left: auto;
+}
+
+/* Медиа-запросы для адаптивной сетки */
+@media (max-width: 480px) {
+    .container {
+        max-width: 100%;
+        padding: 0 8px;
+    }
+    
+    .header {
+        padding: 16px;
+        margin-top: 16px;
+    }
+    
+    .beta-invite {
+        padding: 16px;
+    }
+    
+    .beta-invite h2 {
+        font-size: 20px;
+    }
+    
+    .beta-invite p {
+        font-size: 14px;
+    }
+    
+    .signup-btn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+    
+    .benefit-item {
+        padding: 8px;
+    }
+    
+    .benefit-item img {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .logo-grid {
+        gap: 8px;
+    }
+    
+    .logo-item {
+        padding: 24px;
+        min-height: 180px;
+    }
+    
+    .logo-item img {
+        width: 117px;
+        height: 117px;
+    }
+    
+    .faq {
+        padding: 12px;
+    }
+    
+    .faq-question span {
+        font-size: 13px;
+    }
+    
+    .faq-answer {
+        font-size: 12px;
+    }
+    
+    .telegram-link {
+        padding: 12px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .container {
+        max-width: 600px;
+    }
+    
+    .logo-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    
+    .benefit-item {
+        padding: 16px;
+    }
+}
+
+@media (min-width: 769px) {
+    .container {
+        max-width: 800px;
+    }
+    
+    .benefits {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+    
+    .logo-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+    }
+    
+    .faq {
+        padding: 24px;
+    }
+}
