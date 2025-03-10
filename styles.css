@@ -1,40 +1,36 @@
 /* Подключение шрифтов */
 @font-face {
-    font-family: 'JetBrainsMono';
-    src: url('../fonts/JetBrainsMono-Thin.woff2') format('woff2');
-    font-weight: 100;
+    font-family: 'PPPangramSansRounded';
+    src: url('./fonts/PPPangramSansRounded-Light.woff2') format('woff2'),
+         url('./fonts/PPPangramSansRounded-Light.woff') format('woff');
+    font-weight: 300;
     font-style: normal;
     font-display: fallback;
 }
 
 @font-face {
-    font-family: 'JetBrainsMono';
-    src: url('../fonts/JetBrainsMono-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-    font-display: fallback;
-}
-
-@font-face {
-    font-family: 'JetBrainsMono';
-    src: url('../fonts/JetBrainsMono-Medium.woff2') format('woff2');
+    font-family: 'PPPangramSansRounded';
+    src: url('./fonts/PPPangramSansRounded-Medium.woff2') format('woff2'),
+         url('./fonts/PPPangramSansRounded-Medium.woff') format('woff');
     font-weight: 500;
     font-style: normal;
     font-display: fallback;
 }
 
 @font-face {
-    font-family: 'JetBrainsMono';
-    src: url('../fonts/JetBrainsMono-Bold.woff2') format('woff2');
-    font-weight: 700;
+    font-family: 'PPPangramSansRounded';
+    src: url('./fonts/PPPangramSansRounded-Semibold.woff2') format('woff2'),
+         url('./fonts/PPPangramSansRounded-Semibold.woff') format('woff');
+    font-weight: 600;
     font-style: normal;
     font-display: fallback;
 }
 
 @font-face {
-    font-family: 'JetBrainsMono';
-    src: url('../fonts/JetBrainsMono-ExtraBold.woff2') format('woff2');
-    font-weight: 800;
+    font-family: 'PPPangramSansRounded';
+    src: url('./fonts/PPPangramSansRounded-Bold.woff2') format('woff2'),
+         url('./fonts/PPPangramSansRounded-Bold.woff') format('woff');
+    font-weight: 700;
     font-style: normal;
     font-display: fallback;
 }
@@ -84,7 +80,7 @@
 }
 
 body {
-    font-family: 'JetBrainsMono', sans-serif;
+    font-family: 'PPPangramSansRounded', sans-serif;
     background-color: var(--primary-bg);
     color: var(--text-color);
     transition: all 0.3s ease;
@@ -126,7 +122,7 @@ body {
     font-weight: 700;
     font-size: 16px;
     color: var(--text-color, #141414);
-    font-family: var(--Fonts-Font, "JetBrainsMono");
+    font-family: var(--Fonts-Font, "PPPangramSansRounded");
     font-style: normal;
     line-height: normal;
     margin-left: 8px;
@@ -175,7 +171,7 @@ body {
     -webkit-transition: .4s;
     transition: .4s;
     border-radius: 50%;
-    background-image: url('../public/icons/sun.svg');
+    background-image: url('./public/icons/sun.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 24px;
@@ -189,7 +185,7 @@ input:checked + .slider:before {
     -webkit-transform: translateX(20px);
     -ms-transform: translateX(20px);
     transform: translateX(20px);
-    background-image: url('../public/icons/moon.svg');
+    background-image: url('./public/icons/moon.svg');
     background-color: transparent;
 }
 
@@ -207,7 +203,7 @@ input:checked + .slider:before {
     font-size: 24px;
     margin-bottom: 8px;
     color: var(--text-color, #141414);
-    font-family: var(--Fonts-Font, "JetBrainsMono");
+    font-family: var(--Fonts-Font, "PPPangramSansRounded");
     line-height: 24px; /* 109.091% */
     text-align: left;
     width: 296px;
@@ -218,7 +214,7 @@ input:checked + .slider:before {
     font-size: 14px;
     margin-bottom: 16px;
     color: var(--text-color, #141414);
-    font-family: var(--Fonts-Font, "JetBrainsMono");
+    font-family: var(--Fonts-Font, "PPPangramSansRounded");
     line-height: 20px; /* 142.857% */
     text-align: left;
     width: 259px;
@@ -240,7 +236,7 @@ input:checked + .slider:before {
     font-size: 14px;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-family: var(--Fonts-Font, "JetBrainsMono");
+    font-family: var(--Fonts-Font, "PPPangramSansRounded");
     line-height: normal;
     box-shadow: 4px 4px 0px 0px var(--border-color, #141414);
     display: flex;
@@ -287,7 +283,7 @@ input:checked + .slider:before {
     background: var(--Colors-Specific, #DCFD00);
     box-shadow: -4px 4px 0px 0px var(--Colors-Border, #141414);
     color: var(--Colors-Text, #141414);
-    font-family: var(--Fonts-Font, "JetBrainsMono");
+    font-family: var(--Fonts-Font, "PPPangramSansRounded");
     font-size: 14px;
     font-weight: 700;
     line-height: normal;
@@ -317,7 +313,7 @@ input:checked + .slider:before {
 
 .benefit-item span {
     color: var(--Colors-Text, #141414);
-    font-family: var(--Fonts-Font, "JetBrainsMono");
+    font-family: var(--Fonts-Font, "PPPangramSansRounded");
     font-size: 16px;
     font-weight: 400;
     line-height: normal;
@@ -378,7 +374,7 @@ input:checked + .slider:before {
 
 .faq-question span {
     color: var(--Colors-Text, #141414);
-    font-family: var(--Fonts-Font, "JetBrainsMono");
+    font-family: var(--Fonts-Font, "PPPangramSansRounded");
     font-size: 16px;
     font-weight: 400;
     line-height: normal;
@@ -390,7 +386,7 @@ input:checked + .slider:before {
 
 .faq-answer p {
     color: var(--Colors-Text-2, #454545);
-    font-family: var(--Fonts-Font, "JetBrainsMono");
+    font-family: var(--Fonts-Font, "PPPangramSansRounded");
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
@@ -424,7 +420,7 @@ input:checked + .slider:before {
 
 .telegram-link a {
     color: var(--Colors-Text, #141414);
-    font-family: var(--Fonts-Font, "JetBrainsMono");
+    font-family: var(--Fonts-Font, "PPPangramSansRounded");
     font-size: 16px;
     font-weight: 700;
     line-height: normal;
@@ -433,7 +429,7 @@ input:checked + .slider:before {
 
 .telegram-link p {
     color: var(--Colors-Text, #141414);
-    font-family: var(--Fonts-Font, "JetBrainsMono");
+    font-family: var(--Fonts-Font, "PPPangramSansRounded");
     font-size: 14px;
     font-weight: 400;
     line-height: normal;
