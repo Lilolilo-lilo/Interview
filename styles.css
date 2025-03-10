@@ -1,8 +1,8 @@
 /* Подключение шрифтов */
 @font-face {
     font-family: 'PPPangramSansRounded';
-    src: url('./fonts/PPPangramSansRounded-Light.woff2') format('woff2'),
-         url('./fonts/PPPangramSansRounded-Light.woff') format('woff');
+    src: url('/fonts/PPPangramSansRounded-Light.woff2') format('woff2'),
+         url('/fonts/PPPangramSansRounded-Light.woff') format('woff');
     font-weight: 300;
     font-style: normal;
     font-display: fallback;
@@ -10,8 +10,8 @@
 
 @font-face {
     font-family: 'PPPangramSansRounded';
-    src: url('./fonts/PPPangramSansRounded-Medium.woff2') format('woff2'),
-         url('./fonts/PPPangramSansRounded-Medium.woff') format('woff');
+    src: url('/fonts/PPPangramSansRounded-Medium.woff2') format('woff2'),
+         url('/fonts/PPPangramSansRounded-Medium.woff') format('woff');
     font-weight: 500;
     font-style: normal;
     font-display: fallback;
@@ -19,8 +19,8 @@
 
 @font-face {
     font-family: 'PPPangramSansRounded';
-    src: url('./fonts/PPPangramSansRounded-Semibold.woff2') format('woff2'),
-         url('./fonts/PPPangramSansRounded-Semibold.woff') format('woff');
+    src: url('/fonts/PPPangramSansRounded-Semibold.woff2') format('woff2'),
+         url('/fonts/PPPangramSansRounded-Semibold.woff') format('woff');
     font-weight: 600;
     font-style: normal;
     font-display: fallback;
@@ -28,8 +28,8 @@
 
 @font-face {
     font-family: 'PPPangramSansRounded';
-    src: url('./fonts/PPPangramSansRounded-Bold.woff2') format('woff2'),
-         url('./fonts/PPPangramSansRounded-Bold.woff') format('woff');
+    src: url('/fonts/PPPangramSansRounded-Bold.woff2') format('woff2'),
+         url('/fonts/PPPangramSansRounded-Bold.woff') format('woff');
     font-weight: 700;
     font-style: normal;
     font-display: fallback;
@@ -171,7 +171,7 @@ body {
     -webkit-transition: .4s;
     transition: .4s;
     border-radius: 50%;
-    background-image: url('./public/icons/sun.svg');
+    background-image: url('/public/icons/sun.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 24px;
@@ -185,7 +185,7 @@ input:checked + .slider:before {
     -webkit-transform: translateX(20px);
     -ms-transform: translateX(20px);
     transform: translateX(20px);
-    background-image: url('./public/icons/moon.svg');
+    background-image: url('/public/icons/moon.svg');
     background-color: transparent;
 }
 
