@@ -1,28 +1,28 @@
 /* Подключение шрифтов */
 @font-face {
     font-family: 'PPPangramSansRounded';
-    src: url('fonts/PPPangramSansRounded-Light.otf') format('opentype');
+    src: url('fonts/PPPangramSansRounded-Light.woff2') format('woff2');
     font-weight: 300;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'PPPangramSansRounded';
-    src: url('fonts/PPPangramSansRounded-Medium.otf') format('opentype');
+    src: url('fonts/PPPangramSansRounded-Medium.woff2') format('woff2');
     font-weight: 500;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'PPPangramSansRounded';
-    src: url('fonts/PPPangramSansRounded-Semibold.otf') format('opentype');
+    src: url('fonts/PPPangramSansRounded-Semibold.woff2') format('woff2');
     font-weight: 600;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'PPPangramSansRounded';
-    src: url('fonts/PPPangramSansRounded-Bold.otf') format('opentype');
+    src: url('fonts/PPPangramSansRounded-Bold.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
 }
@@ -414,7 +414,7 @@ input:checked + .slider:before {
     color: var(--Colors-Text, #141414);
     font-family: var(--Fonts-Font, "PP Pangram Sans Rounded");
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 700;
     line-height: normal;
     text-decoration: none;
 }
