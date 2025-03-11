@@ -162,7 +162,50 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Обработка отправки формы
     if (submitBtn) {
+        // Функция для проверки заполнения всех полей формы
+        function validateForm() {
+            const nameInput = document.querySelector('.form-input[placeholder="Имя"]');
+            const phoneInput = document.getElementById('phone-input');
+            const dateInput = document.getElementById('date-input');
+            const timeInput = document.getElementById('time-input');
+            
+            // Проверяем заполнение всех полей
+            const isNameValid = nameInput && nameInput.value.trim() !== '';
+            const isPhoneValid = phoneInput && phoneInput.value.trim() !== '' && /^\+7\(\d{3}\)\d{3}-\d{2}-\d{2}$/.test(phoneInput.value);
+            const isDateValid = dateInput && dateInput.value.trim() !== '';
+            const isTimeValid = timeInput && timeInput.value.trim() !== '';
+            
+            // Возвращаем результат проверки
+            return isNameValid && isPhoneValid && isDateValid && isTimeValid;
+        }
+        
+        // Функция для обновления состояния кнопки отправки
+        function updateSubmitButton() {
+            if (validateForm()) {
+                submitBtn.classList.add('active');
+                submitBtn.disabled = false;
+            } else {
+                submitBtn.classList.remove('active');
+                submitBtn.disabled = true;
+            }
+        }
+        
+        // Добавляем обработчики событий для всех полей формы
+        const formInputs = document.querySelectorAll('.form-input');
+        formInputs.forEach(input => {
+            input.addEventListener('input', updateSubmitButton);
+            input.addEventListener('change', updateSubmitButton);
+        });
+        
+        // Инициализируем состояние кнопки при загрузке
+        updateSubmitButton();
+        
         submitBtn.addEventListener('click', function() {
+            // Проверяем валидность формы перед отправкой
+            if (!validateForm()) {
+                return;
+            }
+            
             // Валидация телефона
             if (phoneInput && phoneInput.value) {
                 const phonePattern = /^\+7\(\d{3}\)\d{3}-\d{2}-\d{2}$/;
@@ -170,20 +213,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     alert('Пожалуйста, введите корректный российский номер телефона в формате +7(XXX)XXX-XX-XX');
                     return;
                 }
-            }
-            
-            // Проверка выбора даты и времени
-            const dateInput = document.getElementById('date-input');
-            const timeInput = document.getElementById('time-input');
-            
-            if (!dateInput.value) {
-                alert('Пожалуйста, выберите дату');
-                return;
-            }
-            
-            if (!timeInput.value) {
-                alert('Пожалуйста, выберите время');
-                return;
             }
             
             // Здесь можно добавить валидацию других полей формы и отправку данных
@@ -203,6 +232,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     parentContainer.classList.add('has-value');
                 } else {
                     parentContainer.classList.remove('has-value');
+                }
+                
+                // Обновляем состояние кнопки отправки при изменении значения
+                if (typeof updateSubmitButton === 'function') {
+                    updateSubmitButton();
                 }
             });
             
@@ -244,6 +278,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     dateContainer.classList.add('has-value');
                 } else {
                     dateContainer.classList.remove('has-value');
+                }
+                
+                // Обновляем состояние кнопки отправки при изменении даты
+                if (typeof updateSubmitButton === 'function') {
+                    updateSubmitButton();
                 }
             },
             onReady: function() {
@@ -288,6 +327,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     timeContainer.classList.add('has-value');
                 } else {
                     timeContainer.classList.remove('has-value');
+                }
+                
+                // Обновляем состояние кнопки отправки при изменении времени
+                if (typeof updateSubmitButton === 'function') {
+                    updateSubmitButton();
                 }
             },
             onReady: function() {

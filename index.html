@@ -128,13 +128,13 @@
                 <div class="form-group">
                     <div class="input-with-icon">
                         <img src="public/icons/name.svg" alt="Имя" class="input-icon">
-                        <input type="text" placeholder="Имя" class="form-input">
+                        <input type="text" placeholder="Имя" class="form-input" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="input-with-icon">
                         <img src="public/icons/phone.svg" alt="Телефон" class="input-icon">
-                        <input type="tel" placeholder="Телефон" class="form-input" id="phone-input" pattern="[+]7[(][0-9]{3}[)][0-9]{3}[-][0-9]{2}[-][0-9]{2}" maxlength="18" onkeypress="return /[0-9]/i.test(event.key)">
+                        <input type="tel" placeholder="Телефон" class="form-input" id="phone-input" pattern="[+]7[(][0-9]{3}[)][0-9]{3}[-][0-9]{2}[-][0-9]{2}" maxlength="18" onkeypress="return /[0-9]/i.test(event.key)" required>
                     </div>
                 </div>
                 <div class="form-row">
@@ -142,18 +142,18 @@
                         <div class="input-with-icon date-container">
                             <img src="public/icons/date.svg" alt="Дата" class="input-icon">
                             <div class="field-label">Дата</div>
-                            <input type="text" class="form-input date-input" id="date-input" readonly>
+                            <input type="text" class="form-input date-input" id="date-input" readonly required>
                         </div>
                     </div>
                     <div class="form-group half-width">
                         <div class="input-with-icon time-container">
                             <img src="public/icons/time.svg" alt="Время" class="input-icon">
                             <div class="field-label">Время</div>
-                            <input type="text" class="form-input time-input" id="time-input" readonly>
+                            <input type="text" class="form-input time-input" id="time-input" readonly required>
                         </div>
                     </div>
                 </div>
-                <button class="submit-btn">Записаться</button>
+                <button class="submit-btn" disabled>Записаться</button>
             </div>
         </div>
     </div>
