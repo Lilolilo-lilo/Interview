@@ -6,6 +6,9 @@
     <title>SwipeGo - Бета-тестирование</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="styles.css?v=1.2">
+    <!-- Добавляем стили Flatpickr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_green.css">
 </head>
 <body>
     <div class="container">
@@ -139,13 +142,13 @@
                     <div class="form-group half-width">
                         <div class="input-with-icon">
                             <img src="public/icons/date.svg" alt="Дата" class="input-icon">
-                            <input type="text" placeholder="Дата" class="form-input">
+                            <input type="text" placeholder="Дата" class="form-input" id="date-input">
                         </div>
                     </div>
                     <div class="form-group half-width">
                         <div class="input-with-icon">
                             <img src="public/icons/time.svg" alt="Время" class="input-icon">
-                            <input type="text" placeholder="Время" class="form-input">
+                            <input type="text" placeholder="Время" class="form-input" id="time-input">
                         </div>
                     </div>
                 </div>
@@ -155,5 +158,8 @@
     </div>
 
     <script src="script.js"></script>
+    <!-- Добавляем библиотеку Flatpickr -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ru.js"></script>
 </body>
 </html>

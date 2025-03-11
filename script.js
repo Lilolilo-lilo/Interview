@@ -45,6 +45,42 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Инициализация выбора даты
+    const dateInput = document.getElementById('date-input');
+    if (dateInput) {
+        flatpickr(dateInput, {
+            locale: 'ru',
+            dateFormat: 'd.m.Y',
+            minDate: 'today',
+            disableMobile: false,
+            position: 'below',
+            static: true,
+            monthSelectorType: 'static',
+            onChange: function(selectedDates, dateStr) {
+                console.log('Выбрана дата:', dateStr);
+            }
+        });
+    }
+
+    // Инициализация выбора времени
+    const timeInput = document.getElementById('time-input');
+    if (timeInput) {
+        flatpickr(timeInput, {
+            locale: 'ru',
+            enableTime: true,
+            noCalendar: true,
+            dateFormat: 'H:i',
+            time_24hr: true,
+            minuteIncrement: 30,
+            disableMobile: false,
+            position: 'below',
+            static: true,
+            onChange: function(selectedDates, timeStr) {
+                console.log('Выбрано время:', timeStr);
+            }
+        });
+    }
+
     // Обработка клика по кнопке "Записаться"
     const signupBtn = document.querySelector('.signup-btn');
     const popup = document.getElementById('signupPopup');
@@ -170,6 +206,20 @@ document.addEventListener('DOMContentLoaded', function() {
                     alert('Пожалуйста, введите корректный российский номер телефона в формате +7(XXX)XXX-XX-XX');
                     return;
                 }
+            }
+            
+            // Проверка выбора даты и времени
+            const dateInput = document.getElementById('date-input');
+            const timeInput = document.getElementById('time-input');
+            
+            if (!dateInput.value) {
+                alert('Пожалуйста, выберите дату интервью');
+                return;
+            }
+            
+            if (!timeInput.value) {
+                alert('Пожалуйста, выберите время интервью');
+                return;
             }
             
             // Здесь можно добавить валидацию других полей формы и отправку данных
