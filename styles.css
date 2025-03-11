@@ -454,6 +454,13 @@ body {
     }
 }
 
+/* Медиа-запросы для медиа-запросов */
+@media (max-width: 480px) {
+    .date-input, .time-input {
+        text-align: center !important;
+    }
+}
+
 /* Стили для всплывающего окна */
 .popup-overlay {
     position: fixed;
@@ -613,81 +620,75 @@ body {
     display: none;
 }
 
-/* Стили для flatpickr */
-.flatpickr-overlay {
-    display: none;
-}
-
-.flatpickr-calendar {
-    background: var(--primary-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    font-family: var(--Fonts-Font, "PP Pangram Sans Rounded");
-    z-index: 99999 !important;
-    position: fixed !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    margin: 0 !important;
-}
-
-.flatpickr-time {
-    z-index: 99999 !important;
-    background: var(--primary-bg);
-    border-top: 1px solid var(--border-color);
-    border-radius: 0 0 8px 8px;
-}
-
-.flatpickr-months {
-    position: relative;
-    z-index: 100000 !important;
-}
-
-.flatpickr-current-month {
-    z-index: 100000 !important;
-}
-
-.numInputWrapper {
-    position: relative;
-    z-index: 100000 !important;
-}
-
-.flatpickr-day.selected,
-.flatpickr-day.startRange,
-.flatpickr-day.endRange,
-.flatpickr-day.selected.inRange,
-.flatpickr-day.startRange.inRange,
-.flatpickr-day.endRange.inRange,
-.flatpickr-day.selected:focus,
-.flatpickr-day.startRange:focus,
-.flatpickr-day.endRange:focus,
-.flatpickr-day.selected:hover,
-.flatpickr-day.startRange:hover,
-.flatpickr-day.endRange:hover,
-.flatpickr-day.selected.prevMonthDay,
-.flatpickr-day.startRange.prevMonthDay,
-.flatpickr-day.endRange.prevMonthDay,
-.flatpickr-day.selected.nextMonthDay,
-.flatpickr-day.startRange.nextMonthDay,
-.flatpickr-day.endRange.nextMonthDay {
-    background: var(--Colors-Primary);
-    border-color: var(--Colors-Primary);
-}
-
-.flatpickr-day.today {
-    border-color: var(--Colors-Primary);
-}
-
-.flatpickr-time input.flatpickr-hour,
-.flatpickr-time input.flatpickr-minute {
-    font-family: var(--Fonts-Font, "PP Pangram Sans Rounded");
-}
-
 /* Скрытие стрелок выпадающего списка для полей даты и времени */
 .date-input::-webkit-calendar-picker-indicator,
 .time-input::-webkit-calendar-picker-indicator {
     display: none;
+}
+
+/* Стили для Flatpickr */
+.flatpickr-calendar {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 3px 13px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--Colors-Border, #141414);
+}
+
+.flatpickr-day.selected, 
+.flatpickr-day.startRange, 
+.flatpickr-day.endRange, 
+.flatpickr-day.selected.inRange, 
+.flatpickr-day.startRange.inRange, 
+.flatpickr-day.endRange.inRange, 
+.flatpickr-day.selected:focus, 
+.flatpickr-day.startRange:focus, 
+.flatpickr-day.endRange:focus, 
+.flatpickr-day.selected:hover, 
+.flatpickr-day.startRange:hover, 
+.flatpickr-day.endRange:hover, 
+.flatpickr-day.selected.prevMonthDay, 
+.flatpickr-day.startRange.prevMonthDay, 
+.flatpickr-day.endRange.prevMonthDay, 
+.flatpickr-day.selected.nextMonthDay, 
+.flatpickr-day.startRange.nextMonthDay, 
+.flatpickr-day.endRange.nextMonthDay {
+    background: var(--Colors-Primary, #F93332);
+    border-color: var(--Colors-Primary, #F93332);
+}
+
+.flatpickr-time .numInputWrapper span.arrowUp:after,
+.flatpickr-time .numInputWrapper span.arrowDown:after {
+    border-color: var(--Colors-Primary, #F93332);
+}
+
+.flatpickr-time input:hover, 
+.flatpickr-time .flatpickr-am-pm:hover,
+.flatpickr-time input:focus, 
+.flatpickr-time .flatpickr-am-pm:focus {
+    background: #f3f3f3;
+}
+
+.flatpickr-months .flatpickr-month {
+    background: var(--Colors-Primary, #F93332);
+}
+
+.flatpickr-current-month .flatpickr-monthDropdown-months,
+.flatpickr-current-month input.cur-year {
+    color: white;
+}
+
+.flatpickr-weekday {
+    color: var(--Colors-Text, #141414);
+}
+
+.flatpickr-months .flatpickr-prev-month, 
+.flatpickr-months .flatpickr-next-month {
+    fill: white;
+}
+
+.flatpickr-months .flatpickr-prev-month:hover, 
+.flatpickr-months .flatpickr-next-month:hover {
+    fill: #f3f3f3;
 }
 
 /* Мобильные стили для полей даты и времени */
@@ -711,6 +712,12 @@ body {
     .form-input {
         min-width: 0;
         flex: 1;
+    }
+
+    /* Мобильные стили для Flatpickr */
+    .flatpickr-calendar {
+        width: 307px;
+        font-size: 14px;
     }
 }
 

@@ -192,139 +192,96 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Инициализация полей даты и времени с помощью flatpickr
+    // Обработка всех полей ввода для обновления класса has-value
+    const allInputs = document.querySelectorAll('.form-input');
+    if (allInputs && allInputs.length > 0) {
+        allInputs.forEach(input => {
+            // Добавляем обработчик события input
+            input.addEventListener('input', function() {
+                const parentContainer = this.closest('.input-with-icon');
+                if (this.value) {
+                    parentContainer.classList.add('has-value');
+                } else {
+                    parentContainer.classList.remove('has-value');
+                }
+            });
+            
+            // Проверяем значение при загрузке страницы
+            const parentContainer = input.closest('.input-with-icon');
+            if (input.value) {
+                parentContainer.classList.add('has-value');
+            } else {
+                parentContainer.classList.remove('has-value');
+            }
+        });
+    }
+
+    // Настройка Flatpickr для поля даты
     const dateInput = document.getElementById('date-input');
-    const timeInput = document.getElementById('time-input');
+    const dateContainer = document.querySelector('.date-container');
+    const dateLabel = dateContainer.querySelector('.input-label');
     
-    // Функция для обновления класса has-value
-    function updateHasValueClass(inputElement) {
-        const parentContainer = inputElement.closest('.input-with-icon');
-        if (inputElement.value) {
-            parentContainer.classList.add('has-value');
-        } else {
-            parentContainer.classList.remove('has-value');
-        }
-    }
-    
-    // Функция для центрирования текста в полях даты и времени
-    function centerDateTimeFields() {
-        if (dateInput) {
-            dateInput.style.textAlign = 'center';
-            dateInput.style.paddingLeft = '0';
-            dateInput.style.paddingRight = '0';
-        }
-        
-        if (timeInput) {
-            timeInput.style.textAlign = 'center';
-            timeInput.style.paddingLeft = '0';
-            timeInput.style.paddingRight = '0';
-        }
-    }
-    
-    // Инициализация поля даты
     if (dateInput) {
-        const datePickr = flatpickr(dateInput, {
-            locale: 'ru',
+        const datePicker = flatpickr(dateInput, {
             dateFormat: 'd.m.Y',
             minDate: 'today',
-            disableMobile: true,
-            static: true,
-            appendTo: document.body,
-            position: 'auto',
-            positionElement: dateInput,
-            onOpen: function() {
-                // Центрируем календарь по горизонтали и вертикали
-                const calendar = document.querySelector('.flatpickr-calendar');
-                if (calendar) {
-                    // Центрируем по горизонтали и вертикали
-                    calendar.style.position = 'fixed';
-                    calendar.style.top = '50%';
-                    calendar.style.left = '50%';
-                    calendar.style.transform = 'translate(-50%, -50%)';
-                    calendar.style.zIndex = '99999';
+            disableMobile: false,
+            locale: {
+                firstDayOfWeek: 1, // Понедельник как первый день недели
+                weekdays: {
+                    shorthand: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+                    longhand: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота']
+                },
+                months: {
+                    shorthand: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
+                    longhand: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']
                 }
-                
-                // Центрируем текст
-                dateInput.style.textAlign = 'center';
-                dateInput.style.paddingLeft = '0';
-                dateInput.style.paddingRight = '0';
             },
             onChange: function(selectedDates, dateStr) {
-                updateHasValueClass(dateInput);
-                
-                // Центрируем текст
-                dateInput.style.textAlign = 'center';
-                dateInput.style.paddingLeft = '0';
-                dateInput.style.paddingRight = '0';
+                // Скрываем/показываем метку при выборе даты
+                if (dateStr && dateStr.length > 0) {
+                    dateContainer.classList.add('has-value');
+                } else {
+                    dateContainer.classList.remove('has-value');
+                }
             }
         });
         
         // Проверяем значение при загрузке страницы
-        updateHasValueClass(dateInput);
+        if (dateInput.value && dateInput.value.length > 0) {
+            dateContainer.classList.add('has-value');
+        }
     }
+
+    // Настройка Flatpickr для поля времени
+    const timeInput = document.getElementById('time-input');
+    const timeContainer = document.querySelector('.time-container');
+    const timeLabel = timeContainer.querySelector('.input-label');
     
-    // Инициализация поля времени
     if (timeInput) {
-        const timePickr = flatpickr(timeInput, {
-            locale: 'ru',
+        const timePicker = flatpickr(timeInput, {
             enableTime: true,
             noCalendar: true,
             dateFormat: 'H:i',
             time_24hr: true,
             minuteIncrement: 30,
-            disableMobile: true,
-            static: true,
-            appendTo: document.body,
-            position: 'auto',
-            positionElement: timeInput,
-            onOpen: function() {
-                // Центрируем селектор времени по горизонтали и вертикали
-                const calendar = document.querySelector('.flatpickr-calendar');
-                if (calendar) {
-                    // Центрируем по горизонтали и вертикали
-                    calendar.style.position = 'fixed';
-                    calendar.style.top = '50%';
-                    calendar.style.left = '50%';
-                    calendar.style.transform = 'translate(-50%, -50%)';
-                    calendar.style.zIndex = '99999';
-                }
-                
-                // Центрируем текст
-                timeInput.style.textAlign = 'center';
-                timeInput.style.paddingLeft = '0';
-                timeInput.style.paddingRight = '0';
+            disableMobile: false,
+            locale: {
+                time_24hr: true
             },
             onChange: function(selectedDates, timeStr) {
-                updateHasValueClass(timeInput);
-                
-                // Центрируем текст
-                timeInput.style.textAlign = 'center';
-                timeInput.style.paddingLeft = '0';
-                timeInput.style.paddingRight = '0';
+                // Скрываем/показываем метку при выборе времени
+                if (timeStr && timeStr.length > 0) {
+                    timeContainer.classList.add('has-value');
+                } else {
+                    timeContainer.classList.remove('has-value');
+                }
             }
         });
         
         // Проверяем значение при загрузке страницы
-        updateHasValueClass(timeInput);
-    }
-    
-    // Центрируем поля даты и времени при загрузке страницы
-    centerDateTimeFields();
-    
-    // Центрируем поля даты и времени после небольшой задержки (для уверенности)
-    setTimeout(centerDateTimeFields, 100);
-    
-    // Обработка всех полей ввода для обновления класса has-value
-    const allInputs = document.querySelectorAll('.form-input');
-    if (allInputs && allInputs.length > 0) {
-        allInputs.forEach(input => {
-            // Проверяем значение при загрузке страницы
-            updateHasValueClass(input);
-            
-            // Добавляем обработчик события input
-            input.addEventListener('input', function() {
-                updateHasValueClass(this);
-            });
-        });
+        if (timeInput.value && timeInput.value.length > 0) {
+            timeContainer.classList.add('has-value');
+        }
     }
 });
