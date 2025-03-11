@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
             locale: 'ru',
             dateFormat: 'd.m.Y',
             minDate: 'today',
-            disableMobile: false,
+            disableMobile: true,
             position: 'below',
             static: true,
             monthSelectorType: 'static',
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
             dateFormat: 'H:i',
             time_24hr: true,
             minuteIncrement: 30,
-            disableMobile: false,
+            disableMobile: true,
             position: 'below',
             static: true,
             onChange: function(selectedDates, timeStr) {
