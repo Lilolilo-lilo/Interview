@@ -542,7 +542,7 @@ body {
 
 .form-row {
     display: flex;
-    gap: 12px;
+    gap: 8px;
     margin-bottom: 8px;
     width: 100%;
 }
@@ -632,6 +632,21 @@ body {
     border-radius: 8px;
     box-shadow: 0 3px 13px rgba(0, 0, 0, 0.08);
     border: 1px solid var(--Colors-Border, #141414);
+}
+
+.flatpickr-current-month .flatpickr-monthDropdown-months {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.flatpickr-current-month .flatpickr-monthDropdown-months::-ms-expand {
+    display: none;
+}
+
+.numInputWrapper span.arrowUp,
+.numInputWrapper span.arrowDown {
+    display: none !important;
 }
 
 .flatpickr-day.selected, 
