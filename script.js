@@ -225,7 +225,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const datePicker = flatpickr(dateInput, {
             dateFormat: 'd.m.Y',
             minDate: 'today',
-            disableMobile: false,
+            disableMobile: "false", // Разрешаем нативные контролы на мобильных устройствах
+            allowInput: true,
+            clickOpens: true,
             locale: {
                 firstDayOfWeek: 1, // Понедельник как первый день недели
                 weekdays: {
@@ -251,6 +253,11 @@ document.addEventListener('DOMContentLoaded', function() {
         if (dateInput.value && dateInput.value.length > 0) {
             dateContainer.classList.add('has-value');
         }
+
+        // Добавляем обработчик клика на контейнер даты
+        dateContainer.addEventListener('click', function() {
+            dateInput.focus();
+        });
     }
 
     // Настройка Flatpickr для поля времени
@@ -265,7 +272,9 @@ document.addEventListener('DOMContentLoaded', function() {
             dateFormat: 'H:i',
             time_24hr: true,
             minuteIncrement: 30,
-            disableMobile: false,
+            disableMobile: "false", // Разрешаем нативные контролы на мобильных устройствах
+            allowInput: true,
+            clickOpens: true,
             locale: {
                 time_24hr: true
             },
@@ -283,5 +292,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (timeInput.value && timeInput.value.length > 0) {
             timeContainer.classList.add('has-value');
         }
+
+        // Добавляем обработчик клика на контейнер времени
+        timeContainer.addEventListener('click', function() {
+            timeInput.focus();
+        });
     }
 });

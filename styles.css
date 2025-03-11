@@ -461,6 +461,59 @@ body {
     }
 }
 
+/* Мобильные стили для полей даты и времени */
+@media (max-width: 480px) {
+    .input-with-icon {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+    
+    .input-icon {
+        margin-right: 8px;
+    }
+    
+    .input-label {
+        margin-right: 4px;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+    
+    .form-input {
+        min-width: 0;
+        flex: 1;
+    }
+
+    /* Дополнительные стили для скрытия стрелок на мобильных устройствах */
+    .date-input::-webkit-calendar-picker-indicator,
+    .time-input::-webkit-calendar-picker-indicator,
+    .date-input::-webkit-inner-spin-button,
+    .time-input::-webkit-inner-spin-button,
+    .date-input::-webkit-clear-button,
+    .time-input::-webkit-clear-button {
+        display: none !important;
+        -webkit-appearance: none !important;
+        opacity: 0 !important;
+        width: 0 !important;
+        height: 0 !important;
+        pointer-events: none !important;
+    }
+    
+    .date-input, .time-input {
+        -webkit-appearance: none !important;
+        -moz-appearance: none !important;
+        appearance: none !important;
+        text-align: center !important;
+        background-color: transparent !important;
+    }
+
+    /* Мобильные стили для Flatpickr */
+    .flatpickr-calendar {
+        width: 307px;
+        font-size: 14px;
+    }
+}
+
 /* Стили для всплывающего окна */
 .popup-overlay {
     position: fixed;
@@ -623,7 +676,7 @@ body {
 /* Скрытие стрелок выпадающего списка для полей даты и времени */
 .date-input::-webkit-calendar-picker-indicator,
 .time-input::-webkit-calendar-picker-indicator {
-    display: none;
+    display: none !important;
 }
 
 /* Стили для Flatpickr */
@@ -779,10 +832,6 @@ body {
     pointer-events: none;
 }
 
-.date-input, .time-input {
-    text-align: center !important;
-}
-
 .date-container, .time-container {
     display: flex;
     align-items: center;
@@ -799,17 +848,19 @@ body {
     position: absolute;
     left: 44px;
     z-index: 1;
-}
-
-.date-container .form-input, .time-container .form-input {
-    text-align: center;
-    padding-left: 0;
-    padding-right: 0;
-    width: 100%;
+    color: #454545;
 }
 
 .date-input, .time-input {
     text-align: center !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100%;
+    background-color: transparent !important;
+}
+
+.input-with-icon.has-value .input-label {
+    display: none;
 }
 
 /* Медиа-запросы для адаптивной сетки */
