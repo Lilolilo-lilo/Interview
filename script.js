@@ -52,8 +52,8 @@ document.addEventListener('DOMContentLoaded', function() {
             locale: 'ru',
             dateFormat: 'd.m.Y',
             minDate: 'today',
-            disableMobile: true,
-            position: 'below',
+            disableMobile: false,
+            position: 'auto',
             static: true,
             monthSelectorType: 'static',
             onChange: function(selectedDates, dateStr) {
@@ -72,8 +72,8 @@ document.addEventListener('DOMContentLoaded', function() {
             dateFormat: 'H:i',
             time_24hr: true,
             minuteIncrement: 30,
-            disableMobile: true,
-            position: 'below',
+            disableMobile: false,
+            position: 'auto',
             static: true,
             onChange: function(selectedDates, timeStr) {
                 console.log('Выбрано время:', timeStr);

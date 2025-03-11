@@ -356,6 +356,45 @@ body {
     border: 1px solid var(--Colors-Border, #141414);
     box-shadow: 4px 4px 0px 0px var(--Colors-Border, #141414);
     font-family: var(--Fonts-Font, "PP Pangram Sans Rounded");
+    width: 100% !important;
+    max-width: 300px;
+}
+
+.flatpickr-months {
+    background-color: #2FDF84;
+    border-radius: 8px 8px 0 0;
+    padding: 8px 0;
+}
+
+.flatpickr-month {
+    height: auto;
+}
+
+.flatpickr-current-month {
+    padding: 0;
+}
+
+.flatpickr-monthDropdown-months, .numInputWrapper {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.flatpickr-weekdays {
+    background-color: #f6f6f6;
+    padding: 8px 0 4px;
+}
+
+.flatpickr-weekday {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.flatpickr-day {
+    border-radius: 4px;
+    margin: 2px;
+    font-size: 14px;
+    line-height: 36px;
+    height: 36px;
 }
 
 .flatpickr-day.selected, 
@@ -396,6 +435,30 @@ body {
     background: var(--Colors-Background-2, #FFF4CA);
     border-color: var(--Colors-Primary, #F93332);
     color: var(--Colors-Text, #141414);
+}
+
+.flatpickr-time {
+    border-radius: 0 0 8px 8px;
+    max-height: none;
+}
+
+.flatpickr-time .numInputWrapper {
+    height: 40px;
+}
+
+.flatpickr-time input {
+    font-size: 16px;
+    height: 40px;
+}
+
+.flatpickr-hour, .flatpickr-minute {
+    font-weight: 500;
+}
+
+/* Удаляем стрелки для полей даты и времени */
+#date-input, #time-input {
+    background-image: none;
+    padding-right: 0;
 }
 
 /* Медиа-запросы для адаптивной сетки */
@@ -603,21 +666,6 @@ body {
 
 .input-with-icon::after {
     content: none;
-}
-
-#date-input, #time-input {
-    background-position: right center;
-    background-repeat: no-repeat;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="%23141414" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
-    background-size: 12px;
-    padding-right: 24px;
-}
-
-.input-icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 12px;
-    flex-shrink: 0;
 }
 
 .form-input {
