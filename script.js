@@ -219,11 +219,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Настройка Flatpickr для поля даты
     const dateInput = document.getElementById('date-input');
     const dateContainer = document.querySelector('.date-container');
-    const dateLabel = dateContainer.querySelector('.input-label');
     
     if (dateInput) {
         const datePicker = flatpickr(dateInput, {
-            dateFormat: 'd.m.Y',
+            dateFormat: 'd.m.y',
             minDate: 'today',
             disableMobile: "false", // Разрешаем нативные контролы на мобильных устройствах
             allowInput: true,
@@ -246,6 +245,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     dateContainer.classList.remove('has-value');
                 }
+            },
+            onReady: function() {
+                // Проверяем значение при инициализации
+                if (dateInput.value && dateInput.value.length > 0) {
+                    dateContainer.classList.add('has-value');
+                }
             }
         });
         
@@ -263,7 +268,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Настройка Flatpickr для поля времени
     const timeInput = document.getElementById('time-input');
     const timeContainer = document.querySelector('.time-container');
-    const timeLabel = timeContainer.querySelector('.input-label');
     
     if (timeInput) {
         const timePicker = flatpickr(timeInput, {
@@ -285,6 +289,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     timeContainer.classList.remove('has-value');
                 }
+            },
+            onReady: function() {
+                // Проверяем значение при инициализации
+                if (timeInput.value && timeInput.value.length > 0) {
+                    timeContainer.classList.add('has-value');
+                }
             }
         });
         
@@ -297,5 +307,23 @@ document.addEventListener('DOMContentLoaded', function() {
         timeContainer.addEventListener('click', function() {
             timeInput.focus();
         });
+    }
+
+    // Проверяем и устанавливаем класс has-value для полей даты и времени при загрузке страницы
+    const dateInputCheck = document.getElementById('date-input');
+    const timeInputCheck = document.getElementById('time-input');
+    const dateContainerCheck = document.querySelector('.date-container');
+    const timeContainerCheck = document.querySelector('.time-container');
+    
+    if (dateInputCheck && dateContainerCheck) {
+        if (dateInputCheck.value && dateInputCheck.value.length > 0) {
+            dateContainerCheck.classList.add('has-value');
+        }
+    }
+    
+    if (timeInputCheck && timeContainerCheck) {
+        if (timeInputCheck.value && timeInputCheck.value.length > 0) {
+            timeContainerCheck.classList.add('has-value');
+        }
     }
 });

@@ -838,6 +838,26 @@ body {
     position: relative;
 }
 
+.date-container {
+    min-width: 120px; /* Увеличиваем минимальную ширину контейнера даты */
+}
+
+.field-label {
+    position: absolute;
+    left: 44px;
+    color: #454545;
+    font-family: var(--Fonts-Font, "PP Pangram Sans Rounded");
+    font-size: 16px;
+    font-weight: 500;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.date-container.has-value .field-label,
+.time-container.has-value .field-label {
+    display: none;
+}
+
 .date-container .input-icon, .time-container .input-icon {
     position: absolute;
     left: 12px;
@@ -845,22 +865,32 @@ body {
 }
 
 .date-container .input-label, .time-container .input-label {
-    position: absolute;
-    left: 44px;
-    z-index: 1;
-    color: #454545;
+    display: none !important; /* Полностью скрываем метки */
+}
+
+.date-container .input-label {
+    left: 36px; /* Уменьшаем отступ слева для метки даты */
 }
 
 .date-input, .time-input {
     text-align: center !important;
-    padding-left: 0 !important;
+    padding-left: 40px !important; /* Увеличиваем отступ слева, чтобы текст не накладывался на иконку */
     padding-right: 0 !important;
     width: 100%;
     background-color: transparent !important;
+    font-weight: 500;
+    color: #141414;
 }
 
-.input-with-icon.has-value .input-label {
-    display: none;
+.date-container.has-value .date-input,
+.time-container.has-value .time-input {
+    text-align: center !important;
+}
+
+/* Добавляем новое правило для скрытия меток при наличии значения */
+.date-container.has-value .input-label,
+.time-container.has-value .input-label {
+    display: none !important;
 }
 
 /* Медиа-запросы для адаптивной сетки */
@@ -929,4 +959,8 @@ body {
     .telegram-link {
         padding: 24px;
     }
+}
+
+.input-with-icon.has-value .input-label {
+    display: none;
 }
