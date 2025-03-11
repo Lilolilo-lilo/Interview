@@ -535,12 +535,13 @@ body {
 
 .form-row {
     display: flex;
-    gap: 8px;
+    gap: 12px;
     margin-bottom: 8px;
+    width: 100%;
 }
 
 .half-width {
-    width: 50%;
+    flex: 1;
     margin-bottom: 0;
 }
 
@@ -549,10 +550,11 @@ body {
     align-items: center;
     border: 1px solid var(--Colors-Border, #141414);
     border-radius: 8px;
-    padding: 16px 16px;
-    background-color: var(--primary-bg);
-    min-height: 56px;
     position: relative;
+    padding: 8px 12px;
+    height: 48px;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 .input-with-icon::after {
@@ -562,16 +564,13 @@ body {
 .form-input {
     border: none;
     outline: none;
-    width: 100%;
     font-family: var(--Fonts-Font, "PP Pangram Sans Rounded");
     font-size: 16px;
-    font-weight: 500;
-    line-height: 24px;
-    padding: 4px 0;
-    color: var(--Colors-Text-2, #454545);
-    background-color: transparent;
-    min-height: 28px;
-    height: auto;
+    color: var(--Colors-Text, #141414);
+    width: 100%;
+    background: transparent;
+    padding-left: 8px;
+    text-align: left;
 }
 
 .form-input::placeholder {
@@ -615,6 +614,10 @@ body {
 }
 
 /* Стили для flatpickr */
+.flatpickr-overlay {
+    display: none;
+}
+
 .flatpickr-calendar {
     background: var(--primary-bg);
     border: 1px solid var(--border-color);
@@ -623,20 +626,10 @@ body {
     font-family: var(--Fonts-Font, "PP Pangram Sans Rounded");
     z-index: 99999 !important;
     position: fixed !important;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    margin-top: 2px !important;
-}
-
-.flatpickr-calendar.open {
-    display: inline-block;
-    z-index: 99999 !important;
-}
-
-.flatpickr-calendar.arrowTop:before,
-.flatpickr-calendar.arrowTop:after {
-    display: none;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important;
 }
 
 .flatpickr-time {
@@ -746,6 +739,55 @@ body {
 /* Скрываем placeholder при наличии значения */
 .form-input:not(:placeholder-shown)::placeholder {
     opacity: 0;
+}
+
+.input-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.input-label {
+    position: absolute;
+    left: 44px;
+    color: #454545;
+    font-family: var(--Fonts-Font, "PP Pangram Sans Rounded");
+    font-size: 16px;
+    transition: all 0.2s ease;
+    pointer-events: none;
+}
+
+.date-input, .time-input {
+    text-align: center !important;
+}
+
+.date-container, .time-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.date-container .input-icon, .time-container .input-icon {
+    position: absolute;
+    left: 12px;
+    z-index: 1;
+}
+
+.date-container .input-label, .time-container .input-label {
+    position: absolute;
+    left: 44px;
+    z-index: 1;
+}
+
+.date-container .form-input, .time-container .form-input {
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+}
+
+.date-input, .time-input {
+    text-align: center !important;
 }
 
 /* Медиа-запросы для адаптивной сетки */

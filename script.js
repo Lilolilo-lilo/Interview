@@ -206,6 +206,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
+    // Функция для центрирования текста в полях даты и времени
+    function centerDateTimeFields() {
+        if (dateInput) {
+            dateInput.style.textAlign = 'center';
+            dateInput.style.paddingLeft = '0';
+            dateInput.style.paddingRight = '0';
+        }
+        
+        if (timeInput) {
+            timeInput.style.textAlign = 'center';
+            timeInput.style.paddingLeft = '0';
+            timeInput.style.paddingRight = '0';
+        }
+    }
+    
     // Инициализация поля даты
     if (dateInput) {
         const datePickr = flatpickr(dateInput, {
@@ -218,17 +233,29 @@ document.addEventListener('DOMContentLoaded', function() {
             position: 'auto',
             positionElement: dateInput,
             onOpen: function() {
-                // При открытии календаря устанавливаем позицию вручную
+                // Центрируем календарь по горизонтали и вертикали
                 const calendar = document.querySelector('.flatpickr-calendar');
                 if (calendar) {
-                    const inputRect = dateInput.getBoundingClientRect();
-                    calendar.style.top = (inputRect.bottom + window.scrollY) + 'px';
-                    calendar.style.left = (inputRect.left + window.scrollX) + 'px';
-                    calendar.style.zIndex = '9999';
+                    // Центрируем по горизонтали и вертикали
+                    calendar.style.position = 'fixed';
+                    calendar.style.top = '50%';
+                    calendar.style.left = '50%';
+                    calendar.style.transform = 'translate(-50%, -50%)';
+                    calendar.style.zIndex = '99999';
                 }
+                
+                // Центрируем текст
+                dateInput.style.textAlign = 'center';
+                dateInput.style.paddingLeft = '0';
+                dateInput.style.paddingRight = '0';
             },
             onChange: function(selectedDates, dateStr) {
                 updateHasValueClass(dateInput);
+                
+                // Центрируем текст
+                dateInput.style.textAlign = 'center';
+                dateInput.style.paddingLeft = '0';
+                dateInput.style.paddingRight = '0';
             }
         });
         
@@ -251,23 +278,41 @@ document.addEventListener('DOMContentLoaded', function() {
             position: 'auto',
             positionElement: timeInput,
             onOpen: function() {
-                // При открытии календаря устанавливаем позицию вручную
+                // Центрируем селектор времени по горизонтали и вертикали
                 const calendar = document.querySelector('.flatpickr-calendar');
                 if (calendar) {
-                    const inputRect = timeInput.getBoundingClientRect();
-                    calendar.style.top = (inputRect.bottom + window.scrollY) + 'px';
-                    calendar.style.left = (inputRect.left + window.scrollX) + 'px';
-                    calendar.style.zIndex = '9999';
+                    // Центрируем по горизонтали и вертикали
+                    calendar.style.position = 'fixed';
+                    calendar.style.top = '50%';
+                    calendar.style.left = '50%';
+                    calendar.style.transform = 'translate(-50%, -50%)';
+                    calendar.style.zIndex = '99999';
                 }
+                
+                // Центрируем текст
+                timeInput.style.textAlign = 'center';
+                timeInput.style.paddingLeft = '0';
+                timeInput.style.paddingRight = '0';
             },
             onChange: function(selectedDates, timeStr) {
                 updateHasValueClass(timeInput);
+                
+                // Центрируем текст
+                timeInput.style.textAlign = 'center';
+                timeInput.style.paddingLeft = '0';
+                timeInput.style.paddingRight = '0';
             }
         });
         
         // Проверяем значение при загрузке страницы
         updateHasValueClass(timeInput);
     }
+    
+    // Центрируем поля даты и времени при загрузке страницы
+    centerDateTimeFields();
+    
+    // Центрируем поля даты и времени после небольшой задержки (для уверенности)
+    setTimeout(centerDateTimeFields, 100);
     
     // Обработка всех полей ввода для обновления класса has-value
     const allInputs = document.querySelectorAll('.form-input');
