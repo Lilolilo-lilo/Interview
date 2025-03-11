@@ -357,6 +357,16 @@ body {
         padding: 0 8px;
     }
     
+    /* Стили для формы на мобильных устройствах */
+    .date-container, .time-container {
+        width: 100%;
+    }
+    
+    .date-input, .time-input {
+        width: 100%;
+        text-align: left !important;
+    }
+    
     .header {
         padding: 24px;
     }
@@ -416,6 +426,49 @@ body {
     .telegram-link {
         padding: 24px;
     }
+    
+    /* Дополнительные стили для полей даты и времени */
+    .input-with-icon {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+    
+    .input-icon {
+        margin-right: 8px;
+    }
+    
+    .input-label {
+        margin-right: 4px;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+    
+    .form-input {
+        min-width: 0;
+        flex: 1;
+    }
+    
+    /* Дополнительные стили для скрытия стрелок на мобильных устройствах */
+    .date-input::-webkit-calendar-picker-indicator,
+    .time-input::-webkit-calendar-picker-indicator,
+    .date-input::-webkit-inner-spin-button,
+    .time-input::-webkit-inner-spin-button,
+    .date-input::-webkit-clear-button,
+    .time-input::-webkit-clear-button {
+        display: none !important;
+        -webkit-appearance: none !important;
+        opacity: 0 !important;
+        width: 0 !important;
+        height: 0 !important;
+        pointer-events: none !important;
+    }
+    
+    /* Мобильные стили для Flatpickr */
+    .flatpickr-calendar {
+        width: 307px;
+        font-size: 14px;
+    }
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
@@ -451,66 +504,6 @@ body {
     
     .faq {
         padding: 24px;
-    }
-}
-
-/* Медиа-запросы для медиа-запросов */
-@media (max-width: 480px) {
-    .date-input, .time-input {
-        text-align: center !important;
-    }
-}
-
-/* Мобильные стили для полей даты и времени */
-@media (max-width: 480px) {
-    .input-with-icon {
-        display: flex;
-        align-items: center;
-        flex-wrap: nowrap;
-    }
-    
-    .input-icon {
-        margin-right: 8px;
-    }
-    
-    .input-label {
-        margin-right: 4px;
-        font-size: 14px;
-        white-space: nowrap;
-    }
-    
-    .form-input {
-        min-width: 0;
-        flex: 1;
-    }
-
-    /* Дополнительные стили для скрытия стрелок на мобильных устройствах */
-    .date-input::-webkit-calendar-picker-indicator,
-    .time-input::-webkit-calendar-picker-indicator,
-    .date-input::-webkit-inner-spin-button,
-    .time-input::-webkit-inner-spin-button,
-    .date-input::-webkit-clear-button,
-    .time-input::-webkit-clear-button {
-        display: none !important;
-        -webkit-appearance: none !important;
-        opacity: 0 !important;
-        width: 0 !important;
-        height: 0 !important;
-        pointer-events: none !important;
-    }
-    
-    .date-input, .time-input {
-        -webkit-appearance: none !important;
-        -moz-appearance: none !important;
-        appearance: none !important;
-        text-align: center !important;
-        background-color: transparent !important;
-    }
-
-    /* Мобильные стили для Flatpickr */
-    .flatpickr-calendar {
-        width: 307px;
-        font-size: 14px;
     }
 }
 
@@ -595,13 +588,15 @@ body {
 
 .form-row {
     display: flex;
+    flex-direction: column;
     gap: 8px;
     margin-bottom: 8px;
     width: 100%;
 }
 
 .half-width {
-    flex: 1;
+    width: 100%;
+    flex: none;
     margin-bottom: 0;
 }
 
@@ -759,36 +754,6 @@ body {
     fill: #f3f3f3;
 }
 
-/* Мобильные стили для полей даты и времени */
-@media (max-width: 480px) {
-    .input-with-icon {
-        display: flex;
-        align-items: center;
-        flex-wrap: nowrap;
-    }
-    
-    .input-icon {
-        margin-right: 8px;
-    }
-    
-    .input-label {
-        margin-right: 4px;
-        font-size: 14px;
-        white-space: nowrap;
-    }
-    
-    .form-input {
-        min-width: 0;
-        flex: 1;
-    }
-
-    /* Мобильные стили для Flatpickr */
-    .flatpickr-calendar {
-        width: 307px;
-        font-size: 14px;
-    }
-}
-
 /* Стили для полей ввода */
 .form-input {
     border: none;
@@ -873,7 +838,7 @@ body {
 }
 
 .date-input, .time-input {
-    text-align: center !important;
+    text-align: left !important;
     padding-left: 40px !important; /* Увеличиваем отступ слева, чтобы текст не накладывался на иконку */
     padding-right: 0 !important;
     width: 100%;
@@ -884,83 +849,11 @@ body {
 
 .date-container.has-value .date-input,
 .time-container.has-value .time-input {
-    text-align: center !important;
+    text-align: left !important;
 }
 
 /* Добавляем новое правило для скрытия меток при наличии значения */
 .date-container.has-value .input-label,
 .time-container.has-value .input-label {
     display: none !important;
-}
-
-/* Медиа-запросы для адаптивной сетки */
-@media (max-width: 480px) {
-    .container {
-        max-width: 100%;
-        padding: 0 8px;
-    }
-    
-    .header {
-        padding: 24px;
-    }
-    
-    .beta-invite {
-        padding: 16px;
-    }
-    
-    .beta-invite h2 {
-        font-size: 20px;
-    }
-    
-    .beta-invite p {
-        font-size: 14px;
-    }
-    
-    .signup-btn {
-        font-size: 14px;
-        padding: 16px 48px;
-    }
-    
-    .benefit-item {
-        padding: 8px;
-    }
-    
-    .benefit-item img {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .logo-grid {
-        gap: 8px;
-    }
-    
-    .logo-item {
-        padding: 24px;
-        min-height: 180px;
-    }
-    
-    .logo-item img {
-        width: 117px;
-        height: 117px;
-    }
-    
-    .faq {
-        padding: 24px;
-    }
-    
-    .faq-question span {
-        font-size: 16px;
-    }
-    
-    .faq-answer {
-        font-size: 12px;
-    }
-    
-    .telegram-link {
-        padding: 24px;
-    }
-}
-
-.input-with-icon.has-value .input-label {
-    display: none;
 }
