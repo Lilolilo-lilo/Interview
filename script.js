@@ -45,42 +45,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Инициализация выбора даты
-    const dateInput = document.getElementById('date-input');
-    if (dateInput) {
-        flatpickr(dateInput, {
-            locale: 'ru',
-            dateFormat: 'd.m.Y',
-            minDate: 'today',
-            disableMobile: false,
-            position: 'auto',
-            static: true,
-            monthSelectorType: 'static',
-            onChange: function(selectedDates, dateStr) {
-                console.log('Выбрана дата:', dateStr);
-            }
-        });
-    }
-
-    // Инициализация выбора времени
-    const timeInput = document.getElementById('time-input');
-    if (timeInput) {
-        flatpickr(timeInput, {
-            locale: 'ru',
-            enableTime: true,
-            noCalendar: true,
-            dateFormat: 'H:i',
-            time_24hr: true,
-            minuteIncrement: 30,
-            disableMobile: false,
-            position: 'auto',
-            static: true,
-            onChange: function(selectedDates, timeStr) {
-                console.log('Выбрано время:', timeStr);
-            }
-        });
-    }
-
     // Обработка клика по кнопке "Записаться"
     const signupBtn = document.querySelector('.signup-btn');
     const popup = document.getElementById('signupPopup');
@@ -213,18 +177,109 @@ document.addEventListener('DOMContentLoaded', function() {
             const timeInput = document.getElementById('time-input');
             
             if (!dateInput.value) {
-                alert('Пожалуйста, выберите дату интервью');
+                alert('Пожалуйста, выберите дату');
                 return;
             }
             
             if (!timeInput.value) {
-                alert('Пожалуйста, выберите время интервью');
+                alert('Пожалуйста, выберите время');
                 return;
             }
             
             // Здесь можно добавить валидацию других полей формы и отправку данных
             alert('Спасибо за запись! Мы свяжемся с вами для подтверждения.');
             closePopup();
+        });
+    }
+    
+    // Инициализация полей даты и времени с помощью flatpickr
+    const dateInput = document.getElementById('date-input');
+    const timeInput = document.getElementById('time-input');
+    
+    // Функция для обновления класса has-value
+    function updateHasValueClass(inputElement) {
+        const parentContainer = inputElement.closest('.input-with-icon');
+        if (inputElement.value) {
+            parentContainer.classList.add('has-value');
+        } else {
+            parentContainer.classList.remove('has-value');
+        }
+    }
+    
+    // Инициализация поля даты
+    if (dateInput) {
+        const datePickr = flatpickr(dateInput, {
+            locale: 'ru',
+            dateFormat: 'd.m.Y',
+            minDate: 'today',
+            disableMobile: true,
+            static: true,
+            appendTo: document.body,
+            position: 'auto',
+            positionElement: dateInput,
+            onOpen: function() {
+                // При открытии календаря устанавливаем позицию вручную
+                const calendar = document.querySelector('.flatpickr-calendar');
+                if (calendar) {
+                    const inputRect = dateInput.getBoundingClientRect();
+                    calendar.style.top = (inputRect.bottom + window.scrollY) + 'px';
+                    calendar.style.left = (inputRect.left + window.scrollX) + 'px';
+                    calendar.style.zIndex = '9999';
+                }
+            },
+            onChange: function(selectedDates, dateStr) {
+                updateHasValueClass(dateInput);
+            }
+        });
+        
+        // Проверяем значение при загрузке страницы
+        updateHasValueClass(dateInput);
+    }
+    
+    // Инициализация поля времени
+    if (timeInput) {
+        const timePickr = flatpickr(timeInput, {
+            locale: 'ru',
+            enableTime: true,
+            noCalendar: true,
+            dateFormat: 'H:i',
+            time_24hr: true,
+            minuteIncrement: 30,
+            disableMobile: true,
+            static: true,
+            appendTo: document.body,
+            position: 'auto',
+            positionElement: timeInput,
+            onOpen: function() {
+                // При открытии календаря устанавливаем позицию вручную
+                const calendar = document.querySelector('.flatpickr-calendar');
+                if (calendar) {
+                    const inputRect = timeInput.getBoundingClientRect();
+                    calendar.style.top = (inputRect.bottom + window.scrollY) + 'px';
+                    calendar.style.left = (inputRect.left + window.scrollX) + 'px';
+                    calendar.style.zIndex = '9999';
+                }
+            },
+            onChange: function(selectedDates, timeStr) {
+                updateHasValueClass(timeInput);
+            }
+        });
+        
+        // Проверяем значение при загрузке страницы
+        updateHasValueClass(timeInput);
+    }
+    
+    // Обработка всех полей ввода для обновления класса has-value
+    const allInputs = document.querySelectorAll('.form-input');
+    if (allInputs && allInputs.length > 0) {
+        allInputs.forEach(input => {
+            // Проверяем значение при загрузке страницы
+            updateHasValueClass(input);
+            
+            // Добавляем обработчик события input
+            input.addEventListener('input', function() {
+                updateHasValueClass(this);
+            });
         });
     }
 });

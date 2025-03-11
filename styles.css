@@ -350,117 +350,6 @@ body {
     margin: 0;
 }
 
-/* Стили для календаря Flatpickr */
-.flatpickr-calendar {
-    border-radius: 8px;
-    border: 1px solid var(--Colors-Border, #141414);
-    box-shadow: 4px 4px 0px 0px var(--Colors-Border, #141414);
-    font-family: var(--Fonts-Font, "PP Pangram Sans Rounded");
-    width: 100% !important;
-    max-width: 300px;
-}
-
-.flatpickr-months {
-    background-color: #2FDF84;
-    border-radius: 8px 8px 0 0;
-    padding: 8px 0;
-}
-
-.flatpickr-month {
-    height: auto;
-}
-
-.flatpickr-current-month {
-    padding: 0;
-}
-
-.flatpickr-monthDropdown-months, .numInputWrapper {
-    font-size: 16px;
-    font-weight: 600;
-}
-
-.flatpickr-weekdays {
-    background-color: #f6f6f6;
-    padding: 8px 0 4px;
-}
-
-.flatpickr-weekday {
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.flatpickr-day {
-    border-radius: 4px;
-    margin: 2px;
-    font-size: 14px;
-    line-height: 36px;
-    height: 36px;
-}
-
-.flatpickr-day.selected, 
-.flatpickr-day.startRange, 
-.flatpickr-day.endRange, 
-.flatpickr-day.selected.inRange, 
-.flatpickr-day.startRange.inRange, 
-.flatpickr-day.endRange.inRange, 
-.flatpickr-day.selected:focus, 
-.flatpickr-day.startRange:focus, 
-.flatpickr-day.endRange:focus, 
-.flatpickr-day.selected:hover, 
-.flatpickr-day.startRange:hover, 
-.flatpickr-day.endRange:hover, 
-.flatpickr-day.selected.prevMonthDay, 
-.flatpickr-day.startRange.prevMonthDay, 
-.flatpickr-day.endRange.prevMonthDay, 
-.flatpickr-day.selected.nextMonthDay, 
-.flatpickr-day.startRange.nextMonthDay, 
-.flatpickr-day.endRange.nextMonthDay {
-    background: var(--Colors-Primary, #F93332);
-    border-color: var(--Colors-Primary, #F93332);
-}
-
-.flatpickr-time input:hover, 
-.flatpickr-time .flatpickr-am-pm:hover, 
-.flatpickr-time input:focus, 
-.flatpickr-time .flatpickr-am-pm:focus {
-    background: var(--Colors-Background-2, #FFF4CA);
-}
-
-.flatpickr-day.today {
-    border-color: var(--Colors-Primary, #F93332);
-}
-
-.flatpickr-day.today:hover, 
-.flatpickr-day.today:focus {
-    background: var(--Colors-Background-2, #FFF4CA);
-    border-color: var(--Colors-Primary, #F93332);
-    color: var(--Colors-Text, #141414);
-}
-
-.flatpickr-time {
-    border-radius: 0 0 8px 8px;
-    max-height: none;
-}
-
-.flatpickr-time .numInputWrapper {
-    height: 40px;
-}
-
-.flatpickr-time input {
-    font-size: 16px;
-    height: 40px;
-}
-
-.flatpickr-hour, .flatpickr-minute {
-    font-weight: 500;
-}
-
-/* Удаляем стрелки для полей даты и времени */
-#date-input, #time-input {
-    background-image: none;
-    padding-right: 0;
-}
-
 /* Медиа-запросы для адаптивной сетки */
 @media (max-width: 480px) {
     .container {
@@ -593,7 +482,7 @@ body {
     background-color: var(--primary-bg);
     border-radius: 16px;
     border: 1px solid var(--border-color);
-    overflow: hidden;
+    overflow: visible; 
     position: relative;
     animation: popup-appear 0.3s ease forwards;
 }
@@ -627,6 +516,8 @@ body {
 
 .popup-content {
     padding: 24px;
+    overflow: visible;
+    position: relative;
 }
 
 .popup-content h3 {
@@ -708,4 +599,219 @@ body {
     justify-content: center;
     width: 100%;
     margin-top: 24px;
+}
+
+/* Стили для подписей полей ввода */
+.input-label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #454545;
+    margin-right: 8px;
+    display: inline-block;
+}
+
+.input-with-icon.has-value .input-label {
+    display: none;
+}
+
+/* Стили для flatpickr */
+.flatpickr-calendar {
+    background: var(--primary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: var(--Fonts-Font, "PP Pangram Sans Rounded");
+    z-index: 99999 !important;
+    position: fixed !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    margin-top: 2px !important;
+}
+
+.flatpickr-calendar.open {
+    display: inline-block;
+    z-index: 99999 !important;
+}
+
+.flatpickr-calendar.arrowTop:before,
+.flatpickr-calendar.arrowTop:after {
+    display: none;
+}
+
+.flatpickr-time {
+    z-index: 99999 !important;
+    background: var(--primary-bg);
+    border-top: 1px solid var(--border-color);
+    border-radius: 0 0 8px 8px;
+}
+
+.flatpickr-months {
+    position: relative;
+    z-index: 100000 !important;
+}
+
+.flatpickr-current-month {
+    z-index: 100000 !important;
+}
+
+.numInputWrapper {
+    position: relative;
+    z-index: 100000 !important;
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange,
+.flatpickr-day.selected.inRange,
+.flatpickr-day.startRange.inRange,
+.flatpickr-day.endRange.inRange,
+.flatpickr-day.selected:focus,
+.flatpickr-day.startRange:focus,
+.flatpickr-day.endRange:focus,
+.flatpickr-day.selected:hover,
+.flatpickr-day.startRange:hover,
+.flatpickr-day.endRange:hover,
+.flatpickr-day.selected.prevMonthDay,
+.flatpickr-day.startRange.prevMonthDay,
+.flatpickr-day.endRange.prevMonthDay,
+.flatpickr-day.selected.nextMonthDay,
+.flatpickr-day.startRange.nextMonthDay,
+.flatpickr-day.endRange.nextMonthDay {
+    background: var(--Colors-Primary);
+    border-color: var(--Colors-Primary);
+}
+
+.flatpickr-day.today {
+    border-color: var(--Colors-Primary);
+}
+
+.flatpickr-time input.flatpickr-hour,
+.flatpickr-time input.flatpickr-minute {
+    font-family: var(--Fonts-Font, "PP Pangram Sans Rounded");
+}
+
+/* Скрытие стрелок выпадающего списка для полей даты и времени */
+.date-input::-webkit-calendar-picker-indicator,
+.time-input::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+/* Мобильные стили для полей даты и времени */
+@media (max-width: 480px) {
+    .input-with-icon {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+    
+    .input-icon {
+        margin-right: 8px;
+    }
+    
+    .input-label {
+        margin-right: 4px;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+    
+    .form-input {
+        min-width: 0;
+        flex: 1;
+    }
+}
+
+/* Стили для полей ввода */
+.form-input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+    width: 100%;
+    color: var(--Colors-Text, #141414);
+    font-family: var(--Fonts-Font, "PP Pangram Sans Rounded");
+}
+
+/* Стили для placeholder */
+.form-input::placeholder {
+    color: var(--Colors-Text-2, #141414);
+    opacity: 0.5;
+}
+
+/* Скрываем placeholder при фокусе */
+.form-input:focus::placeholder {
+    opacity: 0;
+}
+
+/* Скрываем placeholder при наличии значения */
+.form-input:not(:placeholder-shown)::placeholder {
+    opacity: 0;
+}
+
+/* Медиа-запросы для адаптивной сетки */
+@media (max-width: 480px) {
+    .container {
+        max-width: 100%;
+        padding: 0 8px;
+    }
+    
+    .header {
+        padding: 24px;
+    }
+    
+    .beta-invite {
+        padding: 16px;
+    }
+    
+    .beta-invite h2 {
+        font-size: 20px;
+    }
+    
+    .beta-invite p {
+        font-size: 14px;
+    }
+    
+    .signup-btn {
+        font-size: 14px;
+        padding: 16px 48px;
+    }
+    
+    .benefit-item {
+        padding: 8px;
+    }
+    
+    .benefit-item img {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .logo-grid {
+        gap: 8px;
+    }
+    
+    .logo-item {
+        padding: 24px;
+        min-height: 180px;
+    }
+    
+    .logo-item img {
+        width: 117px;
+        height: 117px;
+    }
+    
+    .faq {
+        padding: 24px;
+    }
+    
+    .faq-question span {
+        font-size: 16px;
+    }
+    
+    .faq-answer {
+        font-size: 12px;
+    }
+    
+    .telegram-link {
+        padding: 24px;
+    }
 }
