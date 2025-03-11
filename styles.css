@@ -329,7 +329,7 @@ body {
 .telegram-content {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
 }
 
 .telegram-link a {
@@ -452,4 +452,151 @@ body {
     .faq {
         padding: 24px;
     }
+}
+
+/* Стили для всплывающего окна */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FFF4CA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-container {
+    width: 90%;
+    max-width: 360px;
+    background-color: var(--primary-bg);
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    position: relative;
+    animation: popup-appear 0.3s ease forwards;
+}
+
+@keyframes popup-appear {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 10;
+}
+
+.close-btn img {
+    width: 24px;
+    height: 24px;
+}
+
+.popup-content {
+    padding: 24px;
+}
+
+.popup-content h3 {
+    color: var(--Colors-Text, #141414);
+    font-family: var(--Fonts-Font, "PP Pangram Sans Rounded");
+    font-size: 20px;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 16px;
+}
+
+.form-group {
+    margin-bottom: 8px;
+}
+
+.form-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.half-width {
+    width: 50%;
+    margin-bottom: 0;
+}
+
+.input-with-icon {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--Colors-Border, #141414);
+    border-radius: 8px;
+    padding: 16px 16px;
+    background-color: var(--primary-bg);
+    min-height: 56px;
+}
+
+.input-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.form-input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-family: var(--Fonts-Font, "PP Pangram Sans Rounded");
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    padding: 4px 0;
+    color: var(--Colors-Text-2, #454545);
+    background-color: transparent;
+    min-height: 28px;
+    height: auto;
+}
+
+.form-input::placeholder {
+    line-height: 24px;
+    color: var(--Colors-Text-2, #454545);
+    opacity: 0.7;
+    padding-bottom: 4px;
+}
+
+.submit-btn {
+    background-color: var(--Colors-Primary);
+    color: var(--Colors-Text-3);
+    border: none;
+    border-radius: 8px;
+    padding: 16px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--Fonts-Font);
+    line-height: normal;
+    box-shadow: 4px 4px 0px 0px var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 24px;
 }
