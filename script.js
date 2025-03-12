@@ -48,8 +48,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Обработка клика по кнопке "Записаться"
     const signupBtn = document.querySelector('.signup-btn');
     const popup = document.getElementById('signupPopup');
+    const successPopup = document.getElementById('successPopup');
     const closeBtn = document.querySelector('.close-btn');
     const submitBtn = document.querySelector('.submit-btn');
+    const continueBtn = document.querySelector('.continue-btn');
     
     // Функция для открытия всплывающего окна
     function openPopup() {
@@ -60,6 +62,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // Функция для закрытия всплывающего окна
     function closePopup() {
         popup.classList.remove('active');
+        document.body.style.overflow = ''; // Восстановление прокрутки страницы
+    }
+
+    // Функция для открытия всплывающего окна успешной записи
+    function openSuccessPopup() {
+        popup.classList.remove('active');
+        successPopup.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Блокировка прокрутки страницы
+    }
+    
+    // Функция для закрытия всплывающего окна успешной записи
+    function closeSuccessPopup() {
+        successPopup.classList.remove('active');
         document.body.style.overflow = ''; // Восстановление прокрутки страницы
     }
     
@@ -82,6 +97,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 closePopup();
             }
         });
+    }
+
+    // Закрытие при клике вне всплывающего окна успешной записи
+    if (successPopup) {
+        successPopup.addEventListener('click', function(event) {
+            if (event.target === successPopup) {
+                closeSuccessPopup();
+            }
+        });
+    }
+
+    // Обработчик для кнопки "Продолжить"
+    if (continueBtn) {
+        continueBtn.addEventListener('click', closeSuccessPopup);
     }
     
     // Валидация и форматирование номера телефона
@@ -215,9 +244,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
             
-            // Здесь можно добавить валидацию других полей формы и отправку данных
-            alert('Спасибо за запись! Мы свяжемся с вами для подтверждения.');
-            closePopup();
+            // Открываем popup успешной записи вместо alert
+            openSuccessPopup();
         });
     }
     
