@@ -46,6 +46,7 @@
     --Colors-Text: #141414;
     --Colors-Background-4: #F6F4E9;
     --Fonts-Font: 'PPPangramSansRounded', sans-serif;
+    --Colors-Background-5: #FFF;
 }
 
 * {
@@ -874,7 +875,9 @@ body {
 /* Стили для popup успешной записи */
 .success-container {
     text-align: center;
-    padding: 32px 24px;
+    border-radius: 8px;
+    border: 1px solid var(--Colors-Border, #141414);
+    background: var(--Colors-Background-5, #FFF);
 }
 
 .success-content {
@@ -882,7 +885,6 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 16px;
 }
 
 .success-icon {
@@ -891,7 +893,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 8px;
+    margin-bottom: 20px;
 }
 
 .success-icon img {
@@ -900,18 +902,21 @@ body {
 }
 
 .success-content h3 {
-    font-weight: 700;
+    color: var(--Colors-Text, #141414);
+    font-family: var(--Fonts-Font, "PP Pangram Sans Rounded");
     font-size: 20px;
-    color: var(--text-color);
-    margin-bottom: 8px;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 12px;
 }
 
 .success-content p {
-    font-weight: 400;
+    color: var(--Colors-Text, #141414);
+    font-family: var(--Fonts-Font, "PP Pangram Sans Rounded");
     font-size: 14px;
-    color: var(--text-color);
+    font-weight: 400;
+    line-height: normal;
     margin-bottom: 24px;
-    line-height: 1.5;
 }
 
 .continue-btn {
