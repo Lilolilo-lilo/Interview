@@ -49,12 +49,6 @@
     --Colors-Background-5: #FFF;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: 'PPPangramSansRounded', sans-serif;
     background-color: var(--primary-bg);
@@ -907,7 +901,7 @@ body {
     font-size: 20px;
     font-weight: 700;
     line-height: normal;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
 .success-content p {
